@@ -3,24 +3,24 @@ const TicketsServicios = {};
 
 TicketsServicios.listarTickets = () => {
     
-    return axios.get("http://localhost:8080/tickets");
+    return axios.get("https://pegasobk.herokuapp.com/tickets");
       
 }
 
 TicketsServicios.buscarTickets = (criterio) => {
-    return axios.get("http://localhost:8080/tickets?q="+criterio);
+    return axios.get("https://pegasobk.herokuapp.com/tickets?q="+criterio);
 }
 
 TicketsServicios.buscarTicket = (id) => {
-    return axios.get("http://localhost:8080/tickets/"+id);
+    return axios.get("https://pegasobk.herokuapp.com/tickets/"+id);
 }
 
 TicketsServicios.crearTicket = (ticket) => {
-    return axios.post("http://localhost:8080/tickets/", ticket);
+    return axios.post("https://pegasobk.herokuapp.com/tickets/", ticket);
 }
 
 TicketsServicios.modificarTicket = (id, ticket) => {
-    return axios.put("http://localhost:8080/tickets/"+id, ticket);
+    return axios.put("https://pegasobk.herokuapp.com/tickets/"+id, ticket);
 }
 
 export default TicketsServicios;

@@ -70,10 +70,12 @@ const ListadoClientes = () => {
 
     return (
         <div className="container">
-            <h3 className="mt-3">Lista de clientes</h3>
+            <h3>Lista de clientes
+                <a className="btn btn-sm btn-primary mx-3 btn-warning" href="/Clientes/crear">
+                    <i className="bi bi-plus-square" /> Nuevo cliente</a></h3>
             <form action="">
             <input type="text" value = {criterio} onChange={cambiarCriterio} id="criterio" name="criterio"/>
-            <button id="buscar" name="buscar" onClick = {buscarClientes} type="editar" class="btn btn-primary"> Buscar</button>
+            <button id="buscar" name="buscar" onClick = {buscarClientes} type="editar" className="btn btn-primary mx-3 btn-dark"> Buscar</button>
             </form>
 
             <table className="table table-sm">
@@ -85,7 +87,7 @@ const ListadoClientes = () => {
                         <th>telefono</th>
                         <th>correo</th>
                         <th>usuario</th>
-                        <th>password</th>
+                        
                     </tr>
                 </thead>
                 <tbody>
@@ -111,10 +113,11 @@ const ListadoClientes = () => {
                                         <td>{cliente.telefono}</td>
                                         <td>{cliente.correo}</td>
                                         <td>{cliente.usuario}</td>                                     
-                                        <td>{cliente.password}</td>  
+                                          
                                         <td>
                                             <div className="text-end">
-                                                <a href={"/clientes/form/"+cliente._id} type="editar" class="btn btn-sm btn-warning me-2 bi bi-pencil"> Editar</a>
+                                                <a href={"/clientes/crear/"+cliente._id} type="editar" className="btn btn-sm btn-warning me-2 bi bi-pencil"> Editar</a>
+                                                <a href="/" className="btn btn-sm btn-dark me-2 bi bi-folder-plus"> Detalles</a>
                                                 <button onClick={() => {confirmarBorrado(cliente._id, cliente.nombres + " " + cliente.apellidos)}} className="btn btn-sm btn-danger bi bi-trash" data-bs-toggle="modal" data-bs-target="#modalBorrado">Eliminar</button>
                                             </div>
                                         </td>

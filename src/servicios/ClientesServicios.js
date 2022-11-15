@@ -3,24 +3,24 @@ const ClientesServicios = {};
 
 ClientesServicios.listarClientes = () => {
     
-    return axios.get("http://localhost:8080/clientes");
+    return axios.get("https://pegasobk.herokuapp.com/clientes");
       
 }
 
 ClientesServicios.buscarClientes = (criterio) => {
-    return axios.get("http://localhost:8080/clientes?q="+criterio);
+    return axios.get("https://pegasobk.herokuapp.com/clientes?q="+criterio);
 }
 
 ClientesServicios.buscarCliente = (id) => {
-    return axios.get("http://localhost:8080/clientes/"+id);
+    return axios.get("https://pegasobk.herokuapp.com/clientes/"+id);
 }
 
 ClientesServicios.guardarCliente = (cliente) => {
-    return axios.post("http://localhost:8080/clientes/", cliente);
+    return axios.post("https://pegasobk.herokuapp.com/clientes/", cliente);
 }
 
 ClientesServicios.modificarCliente = (id, cliente) => {
-    return axios.put("http://localhost:8080/clientes/"+id, cliente);
+    return axios.put("https://pegasobk.herokuapp.com/clientes/"+id, cliente);
 }
 
 

@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { useNavigate, useParams } from "react-router-dom";
 import ClientesServicios from "../../servicios/ClientesServicios";
 
@@ -16,14 +15,14 @@ const FormClientes = () => {
     const [password, setPassword] = useState("");
     const [confirm, setConfirm] = useState("");
     const [mensaje, setMensaje] = useState("");
-    const [ titulo, setTitulo ] = useState("");
+    const [titulo, setTitulo] = useState("");
 
 
-   const guardarCliente = async (event) => {
+    const guardarCliente = async (event) => {
         event.preventDefault();
         if (password === confirm) {
 
-            try{
+            try {
                 const cliente = {
                     nombres: nombres,
                     apellidos: apellidos,
@@ -32,7 +31,7 @@ const FormClientes = () => {
                     correo: correo,
                     usuario: usuario,
                     password: password
-                    
+
                 }
                 console.log(cliente);
                 if (id == null) {
@@ -76,17 +75,18 @@ const FormClientes = () => {
                     setPassword(respuesta.data.password);
                     setConfirm(respuesta.data.password);
                 }
-               
+                setTitulo("Editar");
+
             }
             else {
-                setTitulo("Registro");
+                setTitulo("Registrarse");
             }
         } catch (error) {
             console.log("Ocurrió un error");
         }
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         cargarCliente();
     }, [])
 
@@ -126,69 +126,78 @@ const FormClientes = () => {
     }
 
     return (
-        <div className="container">
-        <div className="px-5 ">
-        <h3>{titulo} Creacion de clientes</h3>
-        </div>
+        <body>
+            <body background="https://img.freepik.com/vector-gratis/fondo-tinta-alcohol-dorado-pintura-arte-fluido-abstracto_25819-752.jpg?w=1380&t=st=1667409718~exp=1667410318~hmac=f009fb6ef3e87f66d53fc8fd9bc4898f00d01443995f0eff6625d6905c248ce2">
+                <div className="container text-start ">
 
-        <div class="card  px-3 col-7">
-        <div class="card-body">
-       
 
-           
-            <form className="container" action="">
-                <div className="row">
+                    <div className="row g-lg-1 py-5">
+                        <div className="col-lg-5 text-start">
+                            <h1 className="display-6 fw-bold ">Empieza a usar Pegaso</h1>
+                            <p className="col-lg-10 fs-4">
+                                Empieza a usar hoy mismo nuestra suite completa de herramientas gratuitas, a las que siempre tendrás acceso, o solicita una demostración de todos nuestros productos prémium.
+                            </p>
+                        </div>
 
-                    
-                    <div className="col-5 my-2">
-                        <label htmlFor="nombres">Nombres*</label>
-                        <input className="form-control" type="text" onChange={cambiarNombres} value={nombres} id="nombres" required />
-                    </div>
+                        <div className="col">
+                            <body className="p-4 p-md-5 rounded-5 shadow bg-dark text-white opacity-100">
+                                <div className="col text-center fw-bold fs-2 mb-3">{titulo}</div>
+                                <form className="row">
+                                    
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="nombres">Nombres*</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarNombres} value={nombres} id="nombres" required />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="apellidos">Apellidos*</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarApellidos} value={apellidos} id="apellidos" required />
+                                        </div>
 
-                    <div className="col-5 my-2">
-                        <label htmlFor="apellidos">Apellidos*</label>
-                        <input className="form-control" type="text" onChange={cambiarApellidos} value={apellidos} id="apellidos" required />
-                    </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="documento">Documento*</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarDocumento} value={documento} id="documento" required />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="telefono">Telefono*</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarTelefono} value={telefono} id="telefono" required />
+                                        </div>
 
-                    <div className="col-5 my-2">
-                        <label htmlFor="documento">Documento*</label>
-                        <input className="form-control" type="text" onChange={cambiarDocumento} value={documento} id="documento" required />
-                    </div>
-                    <div className="col-5 my-2">
-                        <label htmlFor="telefono">Telefono*</label>
-                        <input className="form-control" type="text" onChange={cambiarTelefono} value={telefono} id="telefono" required />
-                    </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="correo"> Correo *</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarCorreo} value={correo} id="correo" required />
+                                        </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="usuario"> Usuario *</label>
+                                            <input className="form-control g-1" type="text" onChange={cambiarUsuario} value={usuario} id="usuario" required />
+                                        </div>
 
-                    <div className="col-5 my-2">
-                        <label htmlFor="correo"> Correo *</label>
-                        <input className="form-control" type="text" onChange={cambiarCorreo} value={correo} id="correo" required />
-                    </div>
-                    <div className="col-5 my-2" >
-                        <label htmlFor="usuario"> Usuario *</label>
-                        <input className="form-control" type="text" onChange={cambiarUsuario} value={usuario} id="usuario" required />
-                    </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="password"> Password *</label>
+                                            <input className="form-control g-1" type="password" onChange={cambiarPassword} value={password} id="pasword" required />
+                                        </div>
 
-                    <div className="col-5 my-2" >
-                        <label  htmlFor="password"> Password *</label>
-                        <input className="form-control" type="password" onChange={cambiarPassword} value={password} id="pasword" required />
-                    </div>
+                                        <div className="col-md-6">
+                                            <label className="form-control-sm" htmlFor="confirm"> Confirme Password *</label>
+                                            <input className="form-control g-1" type="password" onChange={cambiarConfirm} value={confirm} id="confirm" required />
+                                        </div>
 
-                    <div className="col-5 my-2" >
-                        <label  htmlFor="confirm"> Confirme Password *</label>
-                        <input className="form-control" type="password" onChange={cambiarConfirm} value={confirm} id="confirm" required />
-                    </div>
+                                        <div className="col-12 m-3">
+                                            <button onClick={guardarCliente} className="btn-warning btn btn-outline-white me-4" type="registrar" >{titulo}</button>
+                                            <button onClick={cancelar} className="btn btn-secondary" type="cancelar" >Cancelar</button>
+                                            <div id="mensaje">{mensaje} </div>
+                                        </div>
+                                    
+                                </form>
+                            </body>
+                        </div>
 
-                    <div class="col-5 my-2">
-                        <button onClick = {guardarCliente} className="btn btn-outline-primary  my-2 my-sm-2 me-2" type="registrar" >Registrar</button>
-                        <button onClick={cancelar}className="btn btn-outline-danger  my-2 my-sm-2" type="cancelar" >Cancelar</button>
-                        <div id = "mensaje">{mensaje} </div>
+
                     </div>
                 </div>
-            </form>
-        </div>
-      </div>
-      </div>
-    
+
+            </body >
+        </body >
+
     )
 }
 

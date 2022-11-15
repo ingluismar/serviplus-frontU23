@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const LoginServicios = {}
-const URL = "http://localhost:8080/login/";
+const URL = "https://pegasobk.herokuapp.com/login/";
     
 LoginServicios.login = (credenciales) => {
     return axios.post(URL, credenciales);
